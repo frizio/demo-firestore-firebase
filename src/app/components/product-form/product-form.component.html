@@ -1,3 +1,8 @@
-<p>
-  product-form works!
-</p>
+<form (ngSubmit)="createProduct()" >
+
+  <input type="text" name="name" [(ngModel)]="product.name">
+  <input type="text" name="description" [(ngModel)]="product.description">
+  <input type="number" name="price" [(ngModel)]="product.price" step="0.50">
+
+  <button type="submit">Save</button>
+</form>

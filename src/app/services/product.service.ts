@@ -33,6 +33,11 @@ export class ProductService {
     return this.products;
   }
 
+
+  createProduct(product: Product) {
+    this.productsCollection.add(product);
+  }
+
   deleteProduct(product: Product) {
     this.productDocument = this.db.doc(`products/${product.id}`);
     this.productDocument.delete();

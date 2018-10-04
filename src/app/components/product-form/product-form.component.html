@@ -1,8 +1,15 @@
-<form (ngSubmit)="createProduct()" >
 
-  <input type="text" name="name" [(ngModel)]="product.name">
-  <input type="text" name="description" [(ngModel)]="product.description">
-  <input type="number" name="price" [(ngModel)]="product.price" step="0.50">
-
-  <button type="submit">Save</button>
-</form>
+<div class="card card-body">
+  <form (ngSubmit)="createProduct()" >
+    <div class="form-group">
+      <input type="text" name="name" [(ngModel)]="product.name" class="form-control" placeholder="Product name">
+    </div>
+    <div class="form-group">
+      <input type="text" name="description" [(ngModel)]="product.description" class="form-control" placeholder="Product description">
+    </div>
+    <div class="form-group">
+      <input type="number" name="price" [(ngModel)]="product.price" step="0.50" class="form-control" placeholder="Product price">
+    </div>
+    <button type="submit" class="btn btn-dark btn-block">Save</button>
+  </form>
+</div>

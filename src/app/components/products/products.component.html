@@ -1,3 +1,13 @@
-<p>
-  products works!
-</p>
+<div *ngIf="products.length > 0; else noproducts">
+  <ul>
+    <li *ngFor="let product of products">
+      {{product.name}} <br/>
+      {{product.description}} <br/>
+      {{product.price}} <br/>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noproducts>
+  <p>No products!!!</p>
+</ng-template>

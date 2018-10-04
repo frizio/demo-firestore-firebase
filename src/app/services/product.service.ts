@@ -13,12 +13,12 @@ export class ProductService {
   productDoc;
 
   constructor(
-    private db: AngularFirestore
+    public db: AngularFirestore
   ) { 
     this.products = this.db.collection('products').valueChanges();
   }
 
-  getProduct() {
+  getProducts() {
     return this.products;
   }
 

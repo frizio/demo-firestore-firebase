@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  products = [];
+
+  constructor(
+    public productService: ProductService
+  ) { }
 
   ngOnInit() {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;  
+    } )
   }
 
 }

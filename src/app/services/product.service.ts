@@ -1,6 +1,6 @@
+import { Product } from './../models/product';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -42,5 +42,11 @@ export class ProductService {
     this.productDocument = this.db.doc(`products/${product.id}`);
     this.productDocument.delete();
   }
+
+  updateProduct(product: Product) {
+    this.productDocument = this.db.doc(`products/${product.id}`);
+    this.productDocument.update(product);
+  }
+
 
 }

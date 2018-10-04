@@ -1,3 +1,4 @@
+import { Product } from './../../models/product';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,6 +11,10 @@ export class ProductsComponent implements OnInit {
 
   products = [];
 
+  editing: boolean = false;
+  editingProduct: Product;
+
+
   constructor(
     public productService: ProductService
   ) { }
@@ -21,9 +26,20 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteProduct(event, product) {
-    //console.log('Delete product ' + product.name);
-    //console.log(product);
     this.productService.deleteProduct(product);
+  }
+
+  editProduct(event, product) {
+    console.log(product);
+    this.editingProduct = product;
+    this.editing = !this.editing;
+  }
+
+  updateProduct() {
+    console.log(this.editingProduct);
+    this.productService.updateProduct(this.editingProduct);
+    this.editingProduct = {} as Product;
+    this.editing = false;
   }
 
 }

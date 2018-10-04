@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   deleteProduct(event, product) {
     //console.log('Delete product ' + product.name);
     //console.log(product);
-    
+    this.productService.deleteProduct(product);
   }
 
 }
